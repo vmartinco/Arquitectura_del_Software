@@ -1,0 +1,22 @@
+Index: app_gestion_taller/urls.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from django.urls import path\nfrom . import views\n\nurlpatterns = [\n    path('clientes', views.vista_cliente, name='cliente'),\n    path('clientes/<int:cliente_id>/', views.detalle_cliente, name='detalle'),\n]
+===================================================================
+diff --git a/app_gestion_taller/urls.py b/app_gestion_taller/urls.py
+--- a/app_gestion_taller/urls.py	(revision f56aa167630355f0dfb92c62bbc5d7c36f4536f2)
++++ b/app_gestion_taller/urls.py	(date 1772714295455)
+@@ -4,4 +4,12 @@
+ urlpatterns = [
+     path('clientes', views.vista_cliente, name='cliente'),
+     path('clientes/<int:cliente_id>/', views.detalle_cliente, name='detalle'),
++
++    path('clientes/registrar/', views.registrarCliente, name='registrarCliente'),
++    path('coches/registrar/', views.registrarCoche, name='registrarCoche'),
++    path('servicios/registrar/', views.registrarServicio, name='registrarServicio'),
++
++    path('coches/buscarByMarca/<str:marca>/', views.buscarCochesByMarca, name='buscarCoche'),
++    path('coches/buscarByMarcaAndId/<str:marca>/<int:cliente_id>/', views.buscarCochesByMarcaAndCliente, name='buscarCocheAndCliente'),
++
+ ]
+\ No newline at end of file
